@@ -39,12 +39,14 @@ server.get('/games', (req, res) => {
 
 server.post('/games', (req, res) => {
     let { title, genre, releaseYear } = req.body;
-    // check for required fields
+    
+    
+//looking if the required field was added,if not leave an error
     if (!title || !genre) {
         return res.status(422).json({ error: 'You must include a title and genre.' })
     }
 
-    
+// status sent 
     return res.status(201).json({ message: `${title} added to games database.` })
 })
 
